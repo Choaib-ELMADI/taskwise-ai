@@ -19,7 +19,9 @@ router.post("/", async (request, response) => {
 		return response.status(201).send(task);
 	} catch (err) {
 		console.log(err.message);
-		return response.status(500).send({ message: err.message });
+		return response
+			.status(500)
+			.send({ message: err.message || "Something went wrong" });
 	}
 });
 
@@ -32,7 +34,9 @@ router.get("/", async (request, response) => {
 		});
 	} catch (err) {
 		console.log(err.message);
-		return response.status(500).send({ message: err.message });
+		return response
+			.status(500)
+			.send({ message: err.message || "Something went wrong" });
 	}
 });
 
@@ -44,7 +48,9 @@ router.get("/:id", async (request, response) => {
 		return response.status(200).json(task);
 	} catch (err) {
 		console.log(err.message);
-		return response.status(500).send({ message: err.message });
+		return response
+			.status(500)
+			.send({ message: err.message || "Something went wrong" });
 	}
 });
 
@@ -67,7 +73,9 @@ router.put("/:id", async (request, response) => {
 		return response.status(200).send({ message: "Task updated successfully" });
 	} catch (err) {
 		console.log(err.message);
-		return response.status(500).send({ message: err.message });
+		return response
+			.status(500)
+			.send({ message: err.message || "Something went wrong" });
 	}
 });
 
@@ -82,7 +90,9 @@ router.delete("/:id", async (request, response) => {
 		return response.status(200).json({ message: "Task deleted successfully" });
 	} catch (err) {
 		console.log(err.message);
-		return response.status(500).send({ message: err.message });
+		return response
+			.status(500)
+			.send({ message: err.message || "Something went wrong" });
 	}
 });
 
