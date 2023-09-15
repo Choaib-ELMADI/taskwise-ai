@@ -2,7 +2,7 @@ import React from "react";
 
 const Home = () => {
 	return (
-		<div>
+		<div className="w-[calc(100%-2rem)] max-w-[1300px]">
 			<h1>Home</h1>
 		</div>
 	);

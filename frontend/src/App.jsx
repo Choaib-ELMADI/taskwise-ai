@@ -6,7 +6,7 @@ import { Home, Tasks } from "./pages/index";
 
 const App = () => {
 	return (
-		<main>
+		<main className="w-full max-w-[2000px] m-auto flex flex-col items-center">
 			<Navbar />
 			<Routes>
 				<Route path="/" element={<Home />} />
