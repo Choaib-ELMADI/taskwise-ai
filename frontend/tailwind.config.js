@@ -40,7 +40,11 @@ export default {
 			md: "calc(var(--radius) - 2px)",
 			sm: "calc(var(--radius) - 4px)",
 		},
-		extend: {},
+		extend: {
+			backgroundImage: {
+				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+			},
+		},
 	},
 	plugins: [],
 };
