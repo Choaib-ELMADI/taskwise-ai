@@ -6,7 +6,7 @@ import { Home, Tasks } from "./pages/index";
 
 const App = () => {
 	return (
-		<main className="w-full max-w-[2000px] min-h-screen m-auto flex flex-col items-center">
+		<main className="w-full max-w-[2000px] min-h-screen m-auto flex flex-col items-center custom-scrollbar">
 			<Navbar />
 			<Routes>
 				<Route path="/" element={<Home />} />
