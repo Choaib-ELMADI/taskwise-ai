@@ -15,8 +15,8 @@ const links = [
 const NavLinks = ({ viewMenu, setViewMenu }) => {
 	return (
 		<div
-			className={`absolute right-4 md:static rounded-sm md:rounded-[0px] px-4 py-2 md:p-0
-            flex flex-col md:flex-row items-center gap-2 md:gap-6 bg-text text-background md:bg-background md:text-text 
+			className={`absolute right-4 md:static rounded-sm md:rounded-[0px] p-[2px] md:p-0
+            flex flex-col md:flex-row items-center gap-0 md:gap-6 bg-text text-background md:bg-background md:text-text 
             md:opacity-100 md:visible
             ${
 							viewMenu
@@ -29,7 +29,7 @@ const NavLinks = ({ viewMenu, setViewMenu }) => {
 				<NavLink
 					to={link}
 					key={label}
-					className="opacity-80 hover:opacity-100 transition-all"
+					className="w-full opacity-80 hover:opacity-100 rounded-sm md:rounded-[0px] hover:bg-hovery hover:md:bg-background px-6 py-2 md:p-0 transition-all md:transition-none"
 					onClick={() => setViewMenu(false)}
 				>
 					{label}

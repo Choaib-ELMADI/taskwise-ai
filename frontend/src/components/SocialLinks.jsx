@@ -5,22 +5,22 @@ import React from "react";
 const socialLinks = [
 	{
 		label: "Instagram",
-		icon: <FiInstagram size={22} />,
+		icon: <FiInstagram size={20} />,
 		link: "https://www.instagram.com/choaib_elmadi",
 	},
 	{
 		label: "Github",
-		icon: <FiGithub size={22} />,
+		icon: <FiGithub size={20} />,
 		link: "https://github.com/Choaib-ELMADI",
 	},
 	{
 		label: "Linkedin",
-		icon: <FiLinkedin size={22} />,
+		icon: <FiLinkedin size={20} />,
 		link: "https://www.linkedin.com/in/choaib-elmadi/",
 	},
 	{
 		label: "LeetCode",
-		icon: <SiLeetcode size={22} />,
+		icon: <SiLeetcode size={20} />,
 		link: "https://leetcode.com/Choaib-ELMADI/",
 	},
 ];
