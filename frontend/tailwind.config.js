@@ -31,6 +31,10 @@ export default {
 			small: "var(--small)",
 			tiny: "var(--tiny)",
 		},
+		fontFamily: {
+			arvo: ["Arvo"],
+			kanit: ["Kanit"],
+		},
 		borderRadius: {
 			lg: "var(--radius)",
 			md: "calc(var(--radius) - 2px)",

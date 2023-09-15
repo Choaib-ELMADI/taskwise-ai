@@ -43,7 +43,7 @@
 
 @layer base {
     body {
-        @apply bg-background text-text font-mono;
+        @apply bg-background text-text font-arvo;
     }
 }
 
