@@ -78,6 +78,21 @@ app.put("/tasks/:id", async (request, response) => {
 	}
 });
 
+app.delete("/tasks/:id", async (request, response) => {
+	try {
+		const { id } = request.params;
+
+		const taskToDelete = await Task.findByIdAndDelete(id);
+		if (!taskToDelete) {
+			return response.status(404).json({ message: "Task to delete not found" });
+		}
+		return response.status(200).json({ message: "Task deleted successfully" });
+	} catch (err) {
+		console.log(err.message);
+		return response.status(500).send({ message: err.message });
+	}
+});
+
 mongoose
 	.connect(MONGODB_URL)
 	.then(() => {
