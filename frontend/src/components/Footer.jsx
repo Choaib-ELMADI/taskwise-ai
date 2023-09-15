@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SwitchTheme, Logo, NavLinks, SocialLinks } from "./index";
+import { SwitchTheme, Logo, NavLinks, SocialLinks, Separator } from "./index";
 
 const Footer = () => {
 	return (
@@ -11,7 +11,7 @@ const Footer = () => {
 			</div>
 			<div className="flex items-center gap-3">
 				<SocialLinks />
-				<div className="mx-2 w-[1px] h-[20px] bg-tertiary" />
+				<Separator hiding={false} />
 				<SwitchTheme />
 			</div>
 		</div>

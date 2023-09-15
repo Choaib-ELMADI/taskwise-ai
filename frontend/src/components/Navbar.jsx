@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 
-import { SwitchTheme, Logo, SignUp, NavLinks } from "./index";
+import { SwitchTheme, Logo, SignUp, NavLinks, Separator } from "./index";
 
 const Navbar = () => {
 	const [viewMenu, setViewMenu] = useState(false);
@@ -11,7 +11,7 @@ const Navbar = () => {
 			<Logo />
 			<div className="flex items-center gap-6">
 				<NavLinks viewMenu={viewMenu} setViewMenu={setViewMenu} />
-				<div className="hidden md:block mx-2 w-[1px] h-[20px] bg-tertiary" />
+				<Separator hiding={true} />
 				<SignUp />
 				<SwitchTheme />
 				<button
