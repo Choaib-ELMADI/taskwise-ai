@@ -1,3 +1,69 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --background: #d7caca;
+        --text: #272727;
+
+        --secondary: #444444;
+        --tertiary: #757575;
+        --hovery: rgba(39, 39, 39, .2);
+
+        --brand: #2fdab5;
+
+        --custom_01: #c6b594;
+        --custom_02: #66e4cf;
+        --custom_03: #e1d1d1;
+
+        --radius: 0.5rem;
+        --large: 24px;
+        --medium: 20px;
+        --normal: 17px;
+        --small: 16px;
+        --tiny: 14px;
+    }
+
+    .dark {
+        --background: #272727;
+        --text: #e0e0e0;
+
+        --secondary: #b1b1b1;
+        --tertiary: #686868;
+        --hovery: rgba(224, 224, 224, .2);
+
+        --brand: #00a884;
+
+        --custom_01: #766b55;
+        --custom_02: #51bdab;
+        --custom_03: #2a2a2a;
+    }
+}
+
+@layer base {
+    body {
+        @apply bg-background text-text font-mono;
+    }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    width: 3px;
+    height: 3px;
+    border-radius: var(--radius);
+    background: transparent;
+}
+
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+    background: var(--tertiary);
+}
