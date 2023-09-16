@@ -39,7 +39,7 @@
 
 @layer base {
     body {
-        @apply bg-background text-text font-arvo font-medium;
+        @apply bg-background text-text font-arvo font-medium custom-scrollbar;
     }
 }
 

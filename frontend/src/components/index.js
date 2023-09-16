@@ -6,5 +6,6 @@ export { default as Logo } from "./Logo";
 export { default as SwitchTheme } from "./SwitchTheme";
 export { default as SignUp } from "./SignUp";
 
+export { default as SignUpModel } from "./SignUpModel";
 export { default as Navbar } from "./Navbar";
 export { default as Footer } from "./Footer";

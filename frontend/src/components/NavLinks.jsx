@@ -18,7 +18,7 @@ const NavLinks = ({ viewMenu, setViewMenu }) => {
 			className={`absolute right-4 md:static 
 				rounded-sm md:rounded-[0px] 
 				p-[2px] md:p-0
-				flex items-center flex-col gap-0 bg-hovery backdrop-blur-lg
+				flex items-center flex-col gap-0 bg-hovery backdrop-blur-sm
 				border border-hovery md:border-0
 				md:flex-row md:gap-4 md:bg-[transparent] md:backdrop-blur-none
 				md:opacity-100 md:visible

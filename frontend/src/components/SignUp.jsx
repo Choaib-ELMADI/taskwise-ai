@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { SignUpModelContext } from "../context/SignUpModelContext";
 
 const SignUp = () => {
+	const { toggleModel } = useContext(SignUpModelContext);
+
 	return (
-		<button className="bg-brand text-background dark:text-text whitespace-nowrap px-4 py-1 rounded-[100px]">
+		<button
+			className="bg-brand text-background dark:text-text whitespace-nowrap px-4 py-1 rounded-[100px]"
+			onClick={() => toggleModel()}
+		>
 			Sign Up
 		</button>
 	);
