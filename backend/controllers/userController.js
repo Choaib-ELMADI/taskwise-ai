@@ -12,9 +12,7 @@ export const loginUser = async (request, response) => {
 		const user = await User.login(email, password);
 		const token = createToken(user._id);
 
-		return response
-			.status(200)
-			.json({ message: "User logged in successfully", token });
+		return response.status(200).json({ email, token });
 	} catch (err) {
 		console.log(err.message);
 		return response
@@ -30,9 +28,7 @@ export const signupUser = async (request, response) => {
 		const user = await User.signup(email, password);
 		const token = createToken(user._id);
 
-		return response
-			.status(200)
-			.json({ message: "User created successfully", token });
+		return response.status(200).json({ email, token });
 	} catch (err) {
 		console.log(err.message);
 		return response
