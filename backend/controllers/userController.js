@@ -6,7 +6,21 @@ const createToken = (_id) => {
 };
 
 export const loginUser = async (request, response) => {
-	return response.status(200).json({ message: "Login user" });
+	try {
+		const { email, password } = request.body;
+
+		const user = await User.login(email, password);
+		const token = createToken(user._id);
+
+		return response
+			.status(200)
+			.json({ message: "User logged in successfully", token });
+	} catch (err) {
+		console.log(err.message);
+		return response
+			.status(500)
+			.send({ message: err.message || "Something went wrong" });
+	}
 };
 
 export const signupUser = async (request, response) => {
