@@ -8,10 +8,6 @@ export const signupUser = async (request, response) => {
 	try {
 		const { email, password } = request.body;
 
-		if (!email || !password) {
-			return response.status(400).send({ message: "Missing required data" });
-		}
-
 		const user = await User.signup(email, password);
 		return response
 			.status(200)
