@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import tasksRoutes from "./routes/tasksRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
 const { MONGODB_URI, PORT } = process.env;
@@ -18,6 +19,8 @@ app.get("/", (request, response) => {
 });
 
 app.use("/tasks", tasksRoutes);
+
+app.use("/user", userRoutes);
 
 mongoose
 	.connect(MONGODB_URI)
