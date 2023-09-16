@@ -7,7 +7,7 @@ const SignUp = () => {
 
 	return (
 		<button
-			className="bg-brand text-background dark:text-text whitespace-nowrap px-4 py-1 rounded-[100px]"
+			className="bg-brand text-background dark:text-text whitespace-nowrap px-4 py-1 rounded-[100px] hover:bg-custom_02 transition-all duration-300"
 			onClick={() => toggleModel()}
 		>
 			Sign Up

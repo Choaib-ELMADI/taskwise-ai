@@ -5,7 +5,7 @@ const Logo = () => {
 	return (
 		<Link
 			to="/"
-			className="text-brand uppercase font-kanit font-medium text-medium hover:opacity-80 transition-all"
+			className="text-brand uppercase font-kanit font-medium text-medium hover:text-custom_02 transition-all duration-300"
 		>
 			TaskWise.ai
 		</Link>
