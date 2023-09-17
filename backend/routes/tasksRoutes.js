@@ -1,14 +1,16 @@
 import express from "express";
 
+import { requireAuth } from "../middleware/requireAuth.js";
 import {
 	createTask,
+	deleteTask,
+	editTask,
 	getTasks,
 	getTask,
-	editTask,
-	deleteTask,
 } from "../controllers/tasksController.js";
 
 const router = express.Router();
+router.use(requireAuth);
 
 router.post("/", createTask);
 router.get("/", getTasks);

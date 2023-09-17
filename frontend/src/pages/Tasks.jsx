@@ -1,24 +1,34 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import React from "react";
+
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Tasks = () => {
 	const [loading, setLoading] = useState(false);
 	const [tasks, setTasks] = useState([]);
+	const { user } = useAuthContext();
 
 	useEffect(() => {
-		setLoading(true);
-		axios
-			.get("http://localhost:5555/tasks")
-			.then((res) => {
-				setTasks(res.data.data);
-				setLoading(false);
-			})
-			.catch((err) => {
-				console.log("Error fetching data: ", err.message);
-				setLoading(false);
-			});
-	}, []);
+		const fetchTasks = () => {
+			setLoading(true);
+			axios
+				.get("http://localhost:5555/tasks", {
+					headers: { Authorization: `Bearer ${user.token}` },
+				})
+				.then((res) => {
+					setTasks(res.data.data);
+					setLoading(false);
+				})
+				.catch((err) => {
+					console.log("Error fetching data: ", err.message);
+					setLoading(false);
+				});
+		};
+
+		if (user) {
+			fetchTasks();
+		}
+	}, [user]);
 
 	const renderContent = () => {
 		if (loading) return <p>Loading...</p>;
