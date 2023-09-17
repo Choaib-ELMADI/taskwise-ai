@@ -7,6 +7,7 @@ export default {
 			xs: "380px",
 			sm: "480px",
 			md: "600px",
+			dm: "901px",
 			lg: "976px",
 			xl: "1440px",
 		},
@@ -25,6 +26,7 @@ export default {
 			custom_03: "var(--custom_03)",
 		},
 		fontSize: {
+			xlarge: "var(--xlarge)",
 			large: "var(--large)",
 			medium: "var(--medium)",
 			normal: "var(--normal)",

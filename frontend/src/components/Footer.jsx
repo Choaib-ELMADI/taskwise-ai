@@ -11,8 +11,12 @@ const Footer = () => {
 			</div>
 			<div className="flex items-center gap-3">
 				<SocialLinks />
-				<Separator hiding={false} />
-				<SwitchTheme />
+				<div className="hidden xs:block">
+					<Separator hiding={false} />
+				</div>
+				<div className="hidden xs:flex items-center">
+					<SwitchTheme />
+				</div>
 			</div>
 		</div>
 	);

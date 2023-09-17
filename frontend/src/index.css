@@ -18,6 +18,7 @@
         --custom_03: #e1d1d1;
 
         --radius: 0.5rem;
+        --xlarge: 40px;
         --large: 24px;
         --medium: 20px;
         --normal: 16px;
@@ -39,7 +40,7 @@
 
 @layer base {
     body {
-        @apply bg-background text-text font-arvo font-medium custom-scrollbar;
+        @apply bg-background text-text font-kanit font-medium custom-scrollbar;
     }
 }
 

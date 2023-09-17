@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { SignUpModelContext } from "../context/SignUpModelContext";
 
-const SignUp = () => {
+const SignUp = ({ text = "Sign Up" }) => {
 	const { toggleModel } = useContext(SignUpModelContext);
 
 	return (
@@ -10,7 +10,7 @@ const SignUp = () => {
 			className="bg-brand text-background dark:text-text whitespace-nowrap px-4 py-1 rounded-[100px] hover:bg-custom_02 transition-all duration-300"
 			onClick={() => toggleModel()}
 		>
-			Sign Up
+			{text}
 		</button>
 	);
 };
