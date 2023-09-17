@@ -3,14 +3,31 @@ import { Task } from "../models/taskModel.js";
 export const createTask = async (request, response) => {
 	try {
 		const {
-			body: { title, description, priority, user },
+			body: { title, description, category, priority, tags, notes },
+			user,
 		} = request;
 
-		if (!title || !description || !priority || !user) {
+		if (
+			!title ||
+			!description ||
+			!category ||
+			!priority ||
+			!tags ||
+			!notes ||
+			!user
+		) {
 			return response.status(400).send({ message: "Missing required data" });
 		}
 
-		const newTask = { title, description, priority, user };
+		const newTask = {
+			title,
+			description,
+			category,
+			priority,
+			tags,
+			notes,
+			user: user._id,
+		};
 		const task = await Task.create(newTask);
 		return response.status(201).send(task);
 	} catch (err) {
@@ -23,7 +40,9 @@ export const createTask = async (request, response) => {
 
 export const getTasks = async (request, response) => {
 	try {
-		const tasks = await Task.find({});
+		const { user } = request;
+
+		const tasks = await Task.find({ user: user._id });
 		return response.status(200).json({
 			count: tasks.length,
 			data: tasks,
