@@ -19,10 +19,10 @@ const HowItWorks = () => {
 				</p>
 				<p className="max-w-[600px] text-tertiary mt-2">
 					Then, click "Create" and let TaskWise.ai get to work. In seconds,
-					you'll receive step by step detailled instructions on how to complete
-					the task. No more getting overwhelmed at the process of doing a chore
-					or activity. TaskWise.ai gives you simple and concise steps to get the
-					job done.
+					you&#x2019;ll receive step by step detailled instructions on how to
+					complete the task. No more getting overwhelmed at the process of doing
+					a chore or activity. TaskWise.ai gives you simple and concise steps to
+					get the job done.
 				</p>
 			</div>
 		</div>

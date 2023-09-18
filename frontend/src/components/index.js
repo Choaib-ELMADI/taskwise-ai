@@ -16,6 +16,7 @@ export { default as SignupFooter } from "./SignupFooter";
 export { default as SignUpModel } from "./SignUpModel";
 export { default as HowItWorks } from "./HowItWorks";
 export { default as StepsTask } from "./StepsTask";
+export { default as Features } from "./Features";
 export { default as Navbar } from "./Navbar";
 export { default as Footer } from "./Footer";
 export { default as Hero } from "./Hero";
