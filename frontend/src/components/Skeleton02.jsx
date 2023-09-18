@@ -2,11 +2,11 @@ import { AiOutlineSave, AiFillPlusCircle } from "react-icons/ai";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import React from "react";
 
-const Skeleton02 = () => {
+const Skeleton02 = ({ styles = "" }) => {
 	return (
 		<div
-			className="w-full xs:max-w-[300px] h-[140px] rounded-lg backdrop-blur-xl bg-[rgba(255,255,255,0.2)] dark:bg-[rgba(0,0,0,0.2)] border border-hovery pointer-events-none select-none p-4 
-                dm:absolute dm:left-0 dm:translate-x-[-30%] dm:bottom-0 dm:translate-y-[60%] mx-auto md:mx-0 xs:translate-y-[-60px] md:translate-y-0 flex flex-col"
+			className={`w-full xs:max-w-[300px] h-[140px] rounded-lg backdrop-blur-xl bg-[rgba(255,255,255,0.2)] dark:bg-[rgba(0,0,0,0.2)] border border-hovery pointer-events-none select-none p-4 
+            ${styles} flex flex-col`}
 		>
 			<div className="flex gap-2 items-center justify-between mb-2">
 				<div className="flex gap-2">
