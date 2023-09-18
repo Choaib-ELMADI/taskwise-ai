@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Hero, HowItWorks, StepsTask } from "../components/index";
+import { Hero, HowItWorks, SignupFooter, StepsTask } from "../components/index";
 
 const Home = () => {
 	return (
@@ -8,6 +8,7 @@ const Home = () => {
 			<Hero />
 			<StepsTask />
 			<HowItWorks />
+			<SignupFooter />
 		</div>
 	);
 };

@@ -12,6 +12,7 @@ export { default as Skeleton02 } from "./Skeleton02";
 export { default as SignUp } from "./SignUpBtn";
 export { default as Step } from "./Step";
 
+export { default as SignupFooter } from "./SignupFooter";
 export { default as SignUpModel } from "./SignUpModel";
 export { default as HowItWorks } from "./HowItWorks";
 export { default as StepsTask } from "./StepsTask";
