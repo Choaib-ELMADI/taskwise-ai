@@ -15,7 +15,7 @@ const Skeleton01 = () => {
 				</div>
 				<button className="bg-brand rounded-[100px] py-1 px-3 flex items-center gap-1 text-background dark:text-text whitespace-nowrap">
 					<MdOutlineManageHistory size={18} />
-					Manage tasks
+					<span className="hidden xs:block">Manage tasks</span>
 				</button>
 			</div>
 			<div className="mt-2 mb-4">
