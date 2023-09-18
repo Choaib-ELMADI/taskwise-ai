@@ -24,8 +24,8 @@ const Skeleton02 = () => {
 			</p>
 			<h1>User Search</h1>
 			<div className="flex gap-2 items-center justify-between mt-auto">
-				<span className="text-[#e78c24] font-[400] text-tiny">LOW</span>
-				<AiFillPlusCircle size={18} fill="#9a0eb3" />
+				<span className="text-orange font-[400] text-tiny">LOW</span>
+				<AiFillPlusCircle size={19} fill="var(--purple)" />
 			</div>
 		</div>
 	);

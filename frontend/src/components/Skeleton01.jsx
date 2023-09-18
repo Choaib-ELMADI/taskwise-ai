@@ -28,10 +28,10 @@ const Skeleton01 = () => {
 					</div>
 					<div className="flex flex-col gap-1 font-300">
 						<p className="text-tertiary text-tiny">Choaib ELMADI</p>
-						<p className="bg-[#e78c24] text-background dark:text-text text-tiny w-max rounded-[100px] px-2">
+						<p className="bg-orange text-background dark:text-text text-tiny w-max rounded-[100px] px-2">
 							PENDING
 						</p>
-						<p className="text-[#f93535] text-tiny">17 Sept 2023</p>
+						<p className="text-red text-tiny">17 Sept 2023</p>
 					</div>
 				</div>
 			</div>

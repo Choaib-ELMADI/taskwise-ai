@@ -20,6 +20,9 @@ export default {
 			hovery: "var(--hovery)",
 
 			brand: "var(--brand)",
+			orange: "var(--orange)",
+			red: "var(--red)",
+			purple: "var(--purple)",
 
 			custom_01: "var(--custom_01)",
 			custom_02: "var(--custom_02)",
