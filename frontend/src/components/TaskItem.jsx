@@ -10,7 +10,7 @@ import axios from "axios";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { Loader } from "./index";
 
-const TaskItem = ({ task, setRefetching }) => {
+const TaskItem = ({ task, setRefetching, setViewEditModel, setTaskId }) => {
 	const [isDeleting, setIsDeleting] = useState(false);
 	const [viewMenu, setViewMenu] = useState(false);
 
@@ -35,8 +35,8 @@ const TaskItem = ({ task, setRefetching }) => {
 
 	return (
 		<div
-			className={`rounded-lg backdrop-blur-xl bg-[rgba(255,255,255,0.2)] dark:bg-[rgba(0,0,0,0.2)] border border-hovery p-4 flex flex-col ${
-				isDeleting ? "opacity-50 relative" : ""
+			className={`rounded-lg backdrop-blur-xl bg-[rgba(255,255,255,0.2)] dark:bg-[rgba(0,0,0,0.2)] border border-hovery p-4 relative flex flex-col ${
+				isDeleting && "opacity-50"
 			}`}
 			onPointerLeave={() => setViewMenu(false)}
 		>
@@ -67,7 +67,14 @@ const TaskItem = ({ task, setRefetching }) => {
 							<MdOutlineDelete size={22} className="text-red" />
 							Delete
 						</button>
-						<button className="opacity-80 hover:opacity-100 hover:bg-hovery transition-all py-[6px] rounded-sm flex gap-2 items-center justify-center hover:text-brand">
+						<button
+							className="opacity-80 hover:opacity-100 hover:bg-hovery transition-all py-[6px] rounded-sm flex gap-2 items-center justify-center hover:text-brand"
+							onClick={() => {
+								setViewMenu(false);
+								setViewEditModel(true);
+								setTaskId(task._id);
+							}}
+						>
 							<FiEdit size={18} className="text-brand" />
 							Edit
 						</button>
@@ -84,9 +91,11 @@ const TaskItem = ({ task, setRefetching }) => {
 				/{new Date(task.updatedAt).getFullYear()}
 			</p>
 
-			<h1 className="text-large font-[400]">{task.title}</h1>
+			<h1 className="text-large font-[400] pb-1 border-b border-hovery">
+				{task.title}
+			</h1>
 
-			<div className="flex gap-2 items-center justify-between mt-2">
+			<div className="flex gap-2 items-center justify-between mt-4">
 				<span
 					className={`text-tiny uppercase 
 					${
