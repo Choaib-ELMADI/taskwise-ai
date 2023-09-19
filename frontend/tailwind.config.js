@@ -51,6 +51,10 @@ export default {
 				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
 			},
 		},
+		clipPath: {
+			"custom-path":
+				"polygon(0% 0%, 100% 0%, 93% 28%, 85% 47%, 83% 57%, 81% 72%, 81% 84%, 80% 100%, 61% 100%, 56% 72%, 51% 52%, 47% 59%, 43% 67%, 35% 83%, 29% 100%, 27% 100%, 0% 100%)",
+		},
 	},
-	plugins: [],
+	plugins: [require("tailwind-clip-path")],
 };

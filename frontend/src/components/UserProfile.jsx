@@ -20,7 +20,7 @@ const UserProfile = ({ viewProfile, setviewProfile, setViewMenu }) => {
 			/>
 			{viewProfile && (
 				<motion.div
-					className="absolute right-4 top-0 rounded-sm p-1 flex flex-col gap-2 bg-hovery backdrop-blur-sm border border-hovery w-36"
+					className="absolute z-50 right-4 top-0 rounded-sm p-1 flex flex-col gap-2 bg-hovery backdrop-blur-sm border border-hovery w-36"
 					initial={{ opacity: 0, y: "60px" }}
 					animate={{ opacity: 1, y: "56px" }}
 				>

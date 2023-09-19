@@ -15,7 +15,7 @@ const links = [
 const NavLinks = ({ viewMenu, setViewMenu }) => {
 	return (
 		<div
-			className={`absolute right-4 md:static 
+			className={`absolute z-50 right-4 md:static md:z-auto
 				rounded-sm md:rounded-[0px] 
 				p-[2px] md:p-0
 				flex items-center flex-col gap-0 bg-hovery backdrop-blur-sm
