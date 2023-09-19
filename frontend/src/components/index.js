@@ -9,6 +9,7 @@ export { default as CreateTaskBtn } from "./CreateTaskBtn";
 export { default as SwitchTheme } from "./SwitchTheme";
 export { default as UserProfile } from "./UserProfile";
 export { default as Skeleton02 } from "./Skeleton02";
+export { default as TaskItem } from "./TaskItem";
 export { default as SignUp } from "./SignUpBtn";
 export { default as Step } from "./Step";
 

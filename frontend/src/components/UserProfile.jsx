@@ -9,7 +9,7 @@ const UserProfile = ({ viewProfile, setviewProfile, setViewMenu }) => {
 	const { user } = useAuthContext();
 
 	return (
-		<div className="">
+		<div>
 			<BiUserCircle
 				onClick={() => {
 					setviewProfile(!viewProfile);

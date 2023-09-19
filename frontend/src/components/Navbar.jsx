@@ -17,7 +17,7 @@ const Navbar = () => {
 	const { user } = useAuthContext();
 
 	return (
-		<div className="w-[calc(100%-2rem)] max-w-[1300px] py-4 flex items-center justify-between">
+		<div className="w-[calc(100%-2rem)] max-w-[1300px] py-4 flex items-center justify-between relative">
 			<Logo />
 			<div className="flex items-center gap-4">
 				<NavLinks viewMenu={viewMenu} setViewMenu={setViewMenu} />

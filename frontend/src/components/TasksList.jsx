@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import { useAuthContext } from "../hooks/useAuthContext";
+import { Loader, TaskItem } from "./index";
 
 const TasksList = () => {
-	const [loading, setLoading] = useState(false);
+	const [reFetching, setRefetching] = useState(false);
+	const [loading, setLoading] = useState(true);
 	const [tasks, setTasks] = useState([]);
 	const { user } = useAuthContext();
 
@@ -28,26 +30,36 @@ const TasksList = () => {
 		if (user) {
 			fetchTasks();
 		}
-	}, [user]);
+	}, [user, reFetching]);
 
 	const renderContent = () => {
-		if (loading) return <p>Loading...</p>;
+		if (loading)
+			return (
+				<div className="flex flex-col items-center gap-4">
+					<div className="scale-150">
+						<Loader />
+					</div>
+					<p className="text-medium text-secondary">Loading...</p>
+				</div>
+			);
 
-		if (tasks.length < 1) return <p>No tasks yet</p>;
+		if (tasks.length < 1)
+			return <p className="text-medium text-secondary">No tasks yet</p>;
 
-		return tasks.map((task) => (
-			<div key={task._id} className="mb-2">
-				<h1 className="font-bold">{task.title}</h1>
-				<p>{task.description}</p>
+		return (
+			<div className="grid grid-cols-1 gap-2 mn:grid-cols-2 dm:grid-cols-3">
+				{tasks.map((task) => (
+					<TaskItem key={task._id} task={task} setRefetching={setRefetching} />
+				))}
 			</div>
-		));
+		);
 	};
 
 	return (
-		<>
-			<h1>Tasks</h1>
+		<div className="mb-4">
+			<h1 className="text-large mb-4">Task List</h1>
 			{renderContent()}
-		</>
+		</div>
 	);
 };
 

@@ -59,7 +59,7 @@ const SignUpModel = () => {
 
 	return (
 		<div
-			className={`z-50 fixed top-0 left-0 w-full h-screen overflow-y-auto py-8 bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(0,0,0,0.4)] flex items-center justify-center custom-scrollbar 
+			className={`z-[999] fixed top-0 left-0 w-full h-screen overflow-y-auto py-8 bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(0,0,0,0.4)] flex items-center justify-center custom-scrollbar 
 			${isSignupLoading || isLoginLoading ? "cursor-not-allowed" : "cursor-pointer"}`}
 			onClick={() => {
 				if (isSignupLoading || isLoginLoading) return;
