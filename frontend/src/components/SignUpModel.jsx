@@ -59,7 +59,7 @@ const SignUpModel = () => {
 
 	return (
 		<div
-			className={`z-[999] fixed top-0 left-0 w-full h-screen overflow-y-auto py-8 bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(0,0,0,0.4)] flex items-center justify-center custom-scrollbar 
+			className={`z-[999] fixed top-0 left-0 w-full h-screen overflow-y-auto p-2 bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(0,0,0,0.4)] grid place-items-center custom-scrollbar 
 			${isSignupLoading || isLoginLoading ? "cursor-not-allowed" : "cursor-pointer"}`}
 			onClick={() => {
 				if (isSignupLoading || isLoginLoading) return;
@@ -67,7 +67,7 @@ const SignUpModel = () => {
 			}}
 		>
 			<motion.div
-				className="rounded-lg backdrop-blur-xl bg-[rgba(255,255,255,0.2)] dark:bg-[rgba(0,0,0,0.2)] border border-hovery w-[calc(100%-1rem)] max-w-[500px] cursor-default relative p-4"
+				className="rounded-lg backdrop-blur-xl bg-[rgba(255,255,255,0.2)] dark:bg-[rgba(0,0,0,0.2)] border border-hovery w-full max-w-[500px] cursor-default relative p-4"
 				onClick={(e) => e.stopPropagation()}
 				initial={{ rotateZ: -10, opacity: 0, y: "0rem" }}
 				animate={{ rotateZ: 0, opacity: 1 }}
@@ -131,7 +131,7 @@ const SignUpModel = () => {
 						</span>
 					</div>
 					{(signupError || loginError) && (
-						<p className="text-[#ff4141] font-kanit">
+						<p className="text-red font-kanit">
 							* {signupError ? signupError : loginError}
 						</p>
 					)}

@@ -6,6 +6,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { Loader } from "./index";
 
 const EditTaskModel = ({ _id, setViewEditModel, setRefetching }) => {
+	const [isUpdating, setIsUpdating] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [isDone, setIsDone] = useState(false);
 	const [task, setTask] = useState(null);
@@ -27,6 +28,8 @@ const EditTaskModel = ({ _id, setViewEditModel, setRefetching }) => {
 			setIsDone(false);
 		}
 	};
+
+	const handleEditTask = async () => {};
 
 	useEffect(() => {
 		const fetchTask = async () => {
@@ -77,7 +80,8 @@ const EditTaskModel = ({ _id, setViewEditModel, setRefetching }) => {
 						))}
 					</div>
 					<button
-						className="bg-brand rounded-[100px] py-1 px-3 flex items-center gap-1 text-background dark:text-text whitespace-nowrap"
+						className="bg-brand rounded-[100px] py-1 px-3 flex items-center gap-1 text-background dark:text-text whitespace-nowrap disabled:cursor-not-allowed disabled:opacity-50 hover:bg-custom_02 transition-all"
+						disabled={isDone || isUpdating}
 						onClick={handleTaskDone}
 					>
 						{isDone ? <Loader /> : <MdOutlineDone size={20} />}
@@ -113,14 +117,19 @@ const EditTaskModel = ({ _id, setViewEditModel, setRefetching }) => {
 				/>
 				<div className="w-full flex items-center justify-end gap-2 mt-4">
 					<button
-						className={`rounded-[100px] backdrop-blur-[0.1px] border border-hovery py-1 px-4 hover:bg-hovery transition-all select-none flex items-center justify-center`}
+						className={`rounded-[100px] backdrop-blur-[0.1px] border border-hovery py-1 px-4 hover:bg-hovery transition-all select-none flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed`}
+						disabled={isDone || isUpdating}
+						onClick={() => setViewEditModel(false)}
 					>
 						Cancel
 					</button>
 					<button
-						className={`rounded-[100px] py-1 px-4 hover:bg-custom_02 transition-all select-none flex items-center justify-center bg-brand text-background dark:text-text`}
+						className={`rounded-[100px] py-1 px-4 hover:bg-custom_02 transition-all select-none flex items-center justify-center gap-2 bg-brand text-background dark:text-text disabled:opacity-50 disabled:cursor-not-allowed`}
+						disabled={isDone || isUpdating}
+						onClick={handleEditTask}
 					>
-						Submit
+						{isUpdating && <Loader />}
+						{isUpdating ? "Submit..." : "Submit"}
 					</button>
 				</div>
 			</>
@@ -129,8 +138,13 @@ const EditTaskModel = ({ _id, setViewEditModel, setRefetching }) => {
 
 	return (
 		<div
-			className="z-[99] fixed top-0 left-0 w-full h-screen overflow-y-auto px-2 py-8 bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(0,0,0,0.4)] flex items-center justify-center custom-scrollbar cursor-pointer"
-			onClick={() => setViewEditModel(false)}
+			className={`z-[99] fixed top-0 left-0 w-full h-screen overflow-y-auto p-2 bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(0,0,0,0.4)] custom-scrollbar grid place-items-center ${
+				isDone || isUpdating ? "cursor-not-allowed" : "cursor-pointer"
+			}`}
+			onClick={() => {
+				if (isDone || isUpdating) return;
+				setViewEditModel(false);
+			}}
 		>
 			<div
 				className="border border-hovery w-full max-w-[600px] p-4 rounded-lg backdrop-blur-xl bg-[rgba(255,255,255,0.2)] dark:bg-[rgba(0,0,0,0.2)] cursor-default"

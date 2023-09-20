@@ -56,7 +56,7 @@ const TaskItem = ({ task, setRefetching, setViewEditModel, setTaskId }) => {
 				</button>
 				{viewMenu && (
 					<motion.div
-						className="absolute z-50 right-0 top-0 rounded-sm p-[1px] flex flex-col gap-0 bg-hovery backdrop-blur-sm border border-hovery w-28"
+						className="absolute z-50 right-0 top-0 rounded-sm p-[1px] flex flex-col gap-0 bg-[rgba(194,188,188,0.8)] dark:bg-[rgba(35,31,31,0.8)] border border-hovery w-28"
 						initial={{ opacity: 0, y: "45px" }}
 						animate={{ opacity: 1, y: "30px" }}
 					>
@@ -84,7 +84,10 @@ const TaskItem = ({ task, setRefetching, setViewEditModel, setTaskId }) => {
 
 			<p className="flex items-center gap-1 text-tiny text-tertiary mb-1">
 				<AiOutlineSave size={20} />
-				{new Date(task.updatedAt).getDate()}/
+				{new Date(task.updatedAt).getDate() < 10
+					? `0${new Date(task.updatedAt).getDate()}`
+					: new Date(task.updatedAt).getDate()}
+				/
 				{new Date(task.updatedAt).getMonth() < 9
 					? `0${new Date(task.updatedAt).getMonth() + 1}`
 					: new Date(task.updatedAt).getMonth() + 1}
