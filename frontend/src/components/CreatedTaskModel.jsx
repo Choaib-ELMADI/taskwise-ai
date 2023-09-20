@@ -20,7 +20,7 @@ const CreatedTaskModel = ({ task, setCreated, setRefetching }) => {
 			setError(null);
 			setIsSaving(true);
 			await axios.post(
-				"http://localhost:5555/tasks",
+				"task-wise-ai-backend-d6v2q7apv-choaib-elmadi.vercel.app/tasks",
 				{ ...task, notes, priority },
 				{
 					headers: { Authorization: `Bearer ${user.token}` },
