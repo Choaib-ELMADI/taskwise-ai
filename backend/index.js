@@ -12,13 +12,14 @@ const { MONGODB_URI, PORT } = process.env;
 
 const app = express();
 
-// {
-// 		origin: ["https://task-wise-ai-frontend.vercel.app"],
-// 		methods: ["POST", "GET", "DELETE", "PUT"],
-// 		credentials: true,
-// 	}
 app.use(express.json());
-app.use(cors());
+app.use(
+	cors({
+		origin: ["https://taskwise-ai.vercel.app"],
+		methods: ["POST", "GET", "DELETE", "PUT"],
+		credentials: true,
+	})
+);
 
 app.get("/", (request, response) => {
 	return response.status(200).send("Hello, From Server");
