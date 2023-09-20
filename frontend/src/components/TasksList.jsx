@@ -24,7 +24,7 @@ const TasksList = ({ reFetching, setRefetching }) => {
 		const fetchTasks = () => {
 			setLoading(true);
 			axios
-				.get("http://localhost:5555/tasks", {
+				.get("https://task-wise-ai-backend.vercel.app/tasks", {
 					headers: { Authorization: `Bearer ${user.token}` },
 				})
 				.then((res) => {

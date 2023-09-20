@@ -18,7 +18,7 @@ const CreateTaskBtn = ({ styles = "", setCreatedTask, setCreated }) => {
 		try {
 			setLoading(true);
 			const data = await axios.post(
-				"http://localhost:5555/gpt",
+				"https://task-wise-ai-backend.vercel.app/gpt",
 				{ title: prompt },
 				{
 					headers: { Authorization: `Bearer ${user.token}` },

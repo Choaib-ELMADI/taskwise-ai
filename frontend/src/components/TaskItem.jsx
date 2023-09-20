@@ -22,9 +22,12 @@ const TaskItem = ({ task, setRefetching, setViewEditModel, setTaskId }) => {
 
 		try {
 			setIsDeleting(true);
-			await axios.delete(`http://localhost:5555/tasks/${task._id}`, {
-				headers: { Authorization: `Bearer ${user.token}` },
-			});
+			await axios.delete(
+				`https://task-wise-ai-backend.vercel.app/tasks/${task._id}`,
+				{
+					headers: { Authorization: `Bearer ${user.token}` },
+				}
+			);
 			setIsDeleting(false);
 			setRefetching((ref) => !ref);
 		} catch (err) {
