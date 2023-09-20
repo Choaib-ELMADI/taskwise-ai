@@ -27,6 +27,15 @@
         --medium: 20px;
         --normal: 16px;
         --tiny: 14px;
+
+        @media screen and (width < 500px) {
+            --xlarge: 36px;
+        }
+
+        @media screen and (width < 380px) {
+            --xlarge: 30px;
+            --large: 22px;
+        }
     }
 
     .dark {

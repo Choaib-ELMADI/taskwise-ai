@@ -4,8 +4,10 @@ import axios from "axios";
 
 import { useAuthContext } from "../hooks/useAuthContext";
 import { Loader } from "./index";
+const priorities = ["LOW", "MEDIUM", "HIGH"];
 
 const EditTaskModel = ({ _id, setViewEditModel, setRefetching }) => {
+	const [priority, setPriority] = useState(null);
 	const [isUpdating, setIsUpdating] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [isDone, setIsDone] = useState(false);
@@ -36,11 +38,12 @@ const EditTaskModel = ({ _id, setViewEditModel, setRefetching }) => {
 			setIsUpdating(true);
 			await axios.put(
 				`http://localhost:5555/tasks/${_id}`,
-				{ ...task, notes },
+				{ ...task, notes, priority },
 				{ headers: { Authorization: `Bearer ${user.token}` } }
 			);
 			setIsUpdating(false);
 			setViewEditModel(false);
+			setRefetching((ref) => !ref);
 		} catch (err) {
 			console.log(err);
 			setIsUpdating(false);
@@ -56,6 +59,7 @@ const EditTaskModel = ({ _id, setViewEditModel, setRefetching }) => {
 				});
 				setTask(data.data);
 				setNotes(data.data.notes);
+				setPriority(data.data.priority);
 				setLoading(false);
 			} catch (err) {
 				console.log(err);
@@ -101,24 +105,31 @@ const EditTaskModel = ({ _id, setViewEditModel, setRefetching }) => {
 						onClick={handleTaskDone}
 					>
 						{isDone ? <Loader /> : <MdOutlineDone size={20} />}
-						<span>{isDone ? "Done..." : "Mark As Done"}</span>
+						<span className="hidden xs:block">
+							{isDone ? "Done..." : "Mark As Done"}
+						</span>
 					</button>
 				</div>
 				<h1 className="my-4 text-large font-[400]">{task.title}</h1>
 				<p className="text-secondary">Description</p>
 				<p className="text-tertiary ml-4 mb-4">- {task.description}</p>
 				<p className="text-secondary">Priority</p>
-				<p
-					className={`mb-4 uppercase text-background dark:text-text py-[2px] px-2 rounded-[100px] text-tiny max-w-max ${
-						task.priority.toUpperCase() === "LOW"
-							? "bg-orange"
-							: task.priority.toUpperCase() === "MEDIUM"
-							? "bg-green"
-							: "bg-red"
-					}`}
-				>
-					{task.priority}
-				</p>
+				<div className="mb-4 flex items-center gap-2">
+					{priorities.map((p) => (
+						<button
+							onClick={() => setPriority(p)}
+							className={`uppercase text-background dark:text-text py-[2px] px-2 rounded-[100px] text-tiny max-w-max ${
+								p.toUpperCase() === "LOW"
+									? "bg-orange"
+									: p.toUpperCase() === "MEDIUM"
+									? "bg-green"
+									: "bg-red"
+							} ${p === priority ? "opacity-100" : "opacity-30"}`}
+						>
+							{p}
+						</button>
+					))}
+				</div>
 				<p className="text-secondary">Category</p>
 				<p className="bg-hovery rounded-[100px] border border-hovery py-[2px] px-2 max-w-max mb-4">
 					{task.category}

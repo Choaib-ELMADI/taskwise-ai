@@ -3,8 +3,10 @@ import axios from "axios";
 
 import { useAuthContext } from "../hooks/useAuthContext";
 import { Loader } from "./index";
+const priorities = ["LOW", "MEDIUM", "HIGH"];
 
 const CreatedTaskModel = ({ task, setCreated, setRefetching }) => {
+	const [priority, setPriority] = useState(task.priority);
 	const [isSaving, setIsSaving] = useState(false);
 	const [notes, setNotes] = useState(task.notes);
 	const [error, setError] = useState(null);
@@ -19,7 +21,7 @@ const CreatedTaskModel = ({ task, setCreated, setRefetching }) => {
 			setIsSaving(true);
 			await axios.post(
 				"http://localhost:5555/tasks",
-				{ ...task, notes },
+				{ ...task, notes, priority },
 				{
 					headers: { Authorization: `Bearer ${user.token}` },
 				}
@@ -53,17 +55,22 @@ const CreatedTaskModel = ({ task, setCreated, setRefetching }) => {
 				<p className="text-secondary">Description</p>
 				<p className="text-tertiary ml-4 mb-4">- {task.description}</p>
 				<p className="text-secondary">Priority</p>
-				<p
-					className={`mb-4 uppercase text-background dark:text-text py-[2px] px-2 rounded-[100px] text-tiny max-w-max ${
-						task.priority.toUpperCase() === "LOW"
-							? "bg-orange"
-							: task.priority.toUpperCase() === "MEDIUM"
-							? "bg-green"
-							: "bg-red"
-					}`}
-				>
-					{task.priority}
-				</p>
+				<div className="mb-4 flex items-center gap-2">
+					{priorities.map((p) => (
+						<button
+							onClick={() => setPriority(p)}
+							className={`uppercase text-background dark:text-text py-[2px] px-2 rounded-[100px] text-tiny max-w-max ${
+								p.toUpperCase() === "LOW"
+									? "bg-orange"
+									: p.toUpperCase() === "MEDIUM"
+									? "bg-green"
+									: "bg-red"
+							} ${p === priority ? "opacity-100" : "opacity-30"}`}
+						>
+							{p}
+						</button>
+					))}
+				</div>
 				<p className="text-secondary">Category</p>
 				<p className="bg-hovery rounded-[100px] border border-hovery py-[2px] px-2 max-w-max mb-4">
 					{task.category}
