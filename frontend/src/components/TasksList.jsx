@@ -4,9 +4,8 @@ import axios from "axios";
 import { Loader, TaskItem, EditTaskModel } from "./index";
 import { useAuthContext } from "../hooks/useAuthContext";
 
-const TasksList = () => {
+const TasksList = ({ reFetching, setRefetching }) => {
 	const [viewEditModel, setViewEditModel] = useState(false);
-	const [reFetching, setRefetching] = useState(false);
 	const [loading, setLoading] = useState(true);
 	const [taskId, setTaskId] = useState(null);
 	const [tasks, setTasks] = useState([]);

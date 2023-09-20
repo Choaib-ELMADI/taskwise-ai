@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import tasksRoutes from "./routes/tasksRoutes.js";
+import openaiRoute from "./routes/openaiRoute.js";
 import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
@@ -19,8 +20,8 @@ app.get("/", (request, response) => {
 });
 
 app.use("/tasks", tasksRoutes);
-
 app.use("/user", userRoutes);
+app.use("/gpt", openaiRoute);
 
 mongoose
 	.connect(MONGODB_URI)

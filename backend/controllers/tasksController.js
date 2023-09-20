@@ -72,11 +72,20 @@ export const getTask = async (request, response) => {
 export const editTask = async (request, response) => {
 	try {
 		const {
-			body: { title, description, priority, user },
+			body: { title, description, category, priority, tags, notes },
 			params: { id },
+			user,
 		} = request;
 
-		if (!title || !description || !priority || !user) {
+		if (
+			!title ||
+			!description ||
+			!category ||
+			!priority ||
+			!tags ||
+			!notes ||
+			!user
+		) {
 			return response.status(400).send({ message: "Missing required data" });
 		}
 

@@ -13,6 +13,7 @@ export { default as TaskItem } from "./TaskItem";
 export { default as SignUp } from "./SignUpBtn";
 export { default as Step } from "./Step";
 
+export { default as CreatedTaskModel } from "./CreatedTaskModel";
 export { default as EditTaskModel } from "./EditTaskModel";
 export { default as SignupFooter } from "./SignupFooter";
 export { default as SignUpModel } from "./SignUpModel";
