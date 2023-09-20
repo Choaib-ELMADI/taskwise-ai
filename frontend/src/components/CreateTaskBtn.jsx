@@ -25,8 +25,9 @@ const CreateTaskBtn = ({ styles = "", setCreatedTask, setCreated }) => {
 				}
 			);
 			const json = await JSON.parse(data.data.task);
-			setLoading(false);
 			setCreatedTask(json);
+			setPrompt("");
+			setLoading(false);
 			setCreated(true);
 		} catch (err) {
 			console.log(err);

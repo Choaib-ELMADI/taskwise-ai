@@ -29,7 +29,23 @@ const EditTaskModel = ({ _id, setViewEditModel, setRefetching }) => {
 		}
 	};
 
-	const handleEditTask = async () => {};
+	const handleEditTask = async () => {
+		if (!user) return;
+
+		try {
+			setIsUpdating(true);
+			await axios.put(
+				`http://localhost:5555/tasks/${_id}`,
+				{ ...task, notes },
+				{ headers: { Authorization: `Bearer ${user.token}` } }
+			);
+			setIsUpdating(false);
+			setViewEditModel(false);
+		} catch (err) {
+			console.log(err);
+			setIsUpdating(false);
+		}
+	};
 
 	useEffect(() => {
 		const fetchTask = async () => {
