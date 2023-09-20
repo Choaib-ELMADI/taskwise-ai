@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 app.use(
 	cors({
-		origin: [""],
+		origin: ["https://task-wise-ai-frontend.vercel.app/"],
 		methods: ["POST", "GET", "DELETE", "PUT"],
 		credentials: true,
 	})
