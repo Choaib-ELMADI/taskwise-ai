@@ -171,7 +171,7 @@ const EditTaskModel = ({ _id, setViewEditModel, setRefetching }) => {
 
 	return (
 		<div
-			className={`z-[99] fixed top-0 left-0 w-full h-screen overflow-y-auto p-2 bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(0,0,0,0.4)] custom-scrollbar grid place-items-center ${
+			className={`z-[99] fixed top-0 left-0 w-full h-screen overflow-y-auto p-2 bg-[rgba(215,204,204,0.95)] dark:bg-[rgba(26,25,25,0.95)] custom-scrollbar grid place-items-center ${
 				isDone || isUpdating ? "cursor-not-allowed" : "cursor-pointer"
 			}`}
 			onClick={() => {
