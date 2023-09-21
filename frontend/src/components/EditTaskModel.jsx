@@ -19,12 +19,9 @@ const EditTaskModel = ({ _id, setViewEditModel, setRefetching }) => {
 	const handleTaskDone = async () => {
 		try {
 			setIsDone(true);
-			await axios.delete(
-				`https://task-wise-ai-backend.vercel.app/tasks/${_id}`,
-				{
-					headers: { Authorization: `Bearer ${user.token}` },
-				}
-			);
+			await axios.delete(`http://localhost:5555/tasks/${_id}`, {
+				headers: { Authorization: `Bearer ${user.token}` },
+			});
 			setIsDone(false);
 			setViewEditModel(false);
 			setRefetching((ref) => !ref);
@@ -40,7 +37,7 @@ const EditTaskModel = ({ _id, setViewEditModel, setRefetching }) => {
 		try {
 			setIsUpdating(true);
 			await axios.put(
-				`https://task-wise-ai-backend.vercel.app/tasks/${_id}`,
+				`http://localhost:5555/tasks/${_id}`,
 				{ ...task, notes, priority },
 				{ headers: { Authorization: `Bearer ${user.token}` } }
 			);
@@ -57,12 +54,9 @@ const EditTaskModel = ({ _id, setViewEditModel, setRefetching }) => {
 		const fetchTask = async () => {
 			try {
 				setLoading(true);
-				const data = await axios.get(
-					`https://task-wise-ai-backend.vercel.app/tasks/${_id}`,
-					{
-						headers: { Authorization: `Bearer ${user.token}` },
-					}
-				);
+				const data = await axios.get(`http://localhost:5555/tasks/${_id}`, {
+					headers: { Authorization: `Bearer ${user.token}` },
+				});
 				setTask(data.data);
 				setNotes(data.data.notes);
 				setPriority(data.data.priority);
