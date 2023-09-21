@@ -1,6 +1,6 @@
 import validator from "validator";
 import mongoose from "mongoose";
-import bcrypt from "bcrypt";
+// import bcrypt from "bcrypt";
 
 const userSchema = mongoose.Schema(
 	{
@@ -30,10 +30,10 @@ userSchema.statics.signup = async (email, password) => {
 		throw Error("Email already in use");
 	}
 
-	const salt = await bcrypt.genSalt(10);
-	const hash = await bcrypt.hash(password, salt);
+	// const salt = await bcrypt.genSalt(10);
+	// const hash = await bcrypt.hash(password, salt);
 
-	const user = await User.create({ email, password: hash });
+	const user = await User.create({ email, password });
 	return user;
 };
 
@@ -47,8 +47,8 @@ userSchema.statics.login = async (email, password) => {
 		throw Error("Incorrect email");
 	}
 
-	const match = await bcrypt.compare(password, user.password);
-	if (!match) {
+	// const match = await bcrypt.compare(password, user.password);
+	if (user.password !== password) {
 		throw Error("Incorrect password");
 	}
 
