@@ -17,7 +17,6 @@ const TaskItem = ({ task, setRefetching, setViewEditModel, setTaskId }) => {
 	const { user } = useAuthContext();
 
 	const handleDeleteTask = async () => {
-		setViewMenu(false);
 		if (!user) return;
 
 		try {
@@ -73,7 +72,6 @@ const TaskItem = ({ task, setRefetching, setViewEditModel, setTaskId }) => {
 						<button
 							className="opacity-80 hover:opacity-100 hover:bg-hovery transition-all py-[6px] rounded-sm flex gap-2 items-center justify-center hover:text-brand"
 							onClick={() => {
-								setViewMenu(false);
 								setViewEditModel(true);
 								setTaskId(task._id);
 							}}
